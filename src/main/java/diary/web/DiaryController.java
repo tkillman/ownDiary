@@ -27,8 +27,8 @@ public class DiaryController {
 	public String diaryList(@ModelAttribute("diaryVo")DiaryVo diaryVo, ModelMap model) throws Exception{
 		log.debug("테스트");
 		//목표 보내주기
-		GoalVo goalVo = diaryServiceImpl.selectGoal(diaryVo);
-		model.addAttribute("goalVo", goalVo);
+		//GoalVo goalVo = diaryServiceImpl.selectGoal(diaryVo);
+		//model.addAttribute("goalVo", goalVo);
 		
 	    //오늘 날짜 내용 보내주기
 		DiaryVo todayDiaryVo = diaryServiceImpl.selectTodayDiaryData(diaryVo);

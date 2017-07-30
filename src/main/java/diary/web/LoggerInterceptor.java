@@ -1,4 +1,4 @@
-package logger;
+package diary.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,5 +25,6 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         if (log.isDebugEnabled()) {
             log.debug("======================================           END          ======================================\n");
         }
+    }
 }
-}
+

@@ -14,13 +14,14 @@
 <!-- 컨트롤러로 지정된 것 자동으로 빈 설정 -->
 <context:component-scan base-package="diary"></context:component-scan>
 
+
+
 <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean id="loggerInterceptor" class="logger.LoggerInterceptor"></bean>
+            <bean id="loggerInterceptor" class="diary.web.LoggerInterceptor"></bean>
         </mvc:interceptor>
 </mvc:interceptors>
-
 
 	
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

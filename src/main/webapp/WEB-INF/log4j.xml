@@ -17,18 +17,18 @@
      
     <!-- Application Loggers -->
     <logger name="first" additivity="false">
-        <level value="debug" />
+        <level value="DEBUG" />
         <appender-ref ref="console"/>
     </logger>
      
     <!-- Query Loggers -->
     <logger name="jdbc.sqlonly" additivity="false"> 
-        <level value="INFO"/> 
+        <level value="DEBUG"/> 
         <appender-ref ref="console-infolog"/> 
     </logger>
      
     <logger name="jdbc.resultsettable" additivity="false"> 
-        <level value="INFO"/> 
+        <level value="DEBUG"/> 
         <appender-ref ref="console"/> 
     </logger> 
  
