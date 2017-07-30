@@ -45,5 +45,9 @@ public class DiaryDao extends SqlSessionDaoSupport{
 		return (int) getSqlSession().update(diaryVo.getSqlid(), diaryVo);
 	}
 	
+	public int selectDataCount(DiaryVo diaryVo) {
+		return (int)getSqlSession().selectOne(diaryVo.getSqlid(), diaryVo);
+	}
+	
 	
 }

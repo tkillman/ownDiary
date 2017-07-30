@@ -25,7 +25,8 @@ public class DiaryController {
 
 	@RequestMapping(value={"/diary/diaryForm.do"})
 	public String diaryList(@ModelAttribute("diaryVo")DiaryVo diaryVo, ModelMap model) throws Exception{
-		log.debug("테스트");
+		log.debug("gkgkgk");
+		System.out.println("시스아웃");
 		//목표 보내주기
 		//GoalVo goalVo = diaryServiceImpl.selectGoal(diaryVo);
 		//model.addAttribute("goalVo", goalVo);
@@ -41,6 +42,8 @@ public class DiaryController {
 		model.addAttribute("reqDiaryVo", reqDiaryVo);
 		}
 		
+		//int counting = diaryServiceImpl.selectCounting(diaryVo);
+		//model.addAttribute("counting", counting);
 		
 		return "diaryForm";
 	}

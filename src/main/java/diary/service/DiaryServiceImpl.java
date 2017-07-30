@@ -94,9 +94,14 @@ public class DiaryServiceImpl {
 		return diaryDao.selectReqDiaryData(diaryVo);
 	}
 	
-	public int updateReqDiary(DiaryVo diaryVo)throws Exception{
+	public int updateReqDiary(DiaryVo diaryVo) throws Exception{
 		diaryVo.setSqlid("DiaryDao.updateReqDiary");
 		
 		return diaryDao.updateReqDiary(diaryVo);
+	}
+	
+	public int  selectCounting(DiaryVo diaryVo) throws Exception{
+		diaryVo.setSqlid("Product.getProduct");
+		return diaryDao.selectDataCount(diaryVo);
 	}
 }
