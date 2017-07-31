@@ -2,53 +2,41 @@ package diary.vo;
 
 public class DiaryVo {
 
-	private String reqDay;  
-	private String daystr;           
-	private String diaryetc;
-	private String sqlid;
-	private String reqDiaryetc;
-	private String today;
+	
+	private int startDay;
+	private int endDay;
+	private int newLine;
+	private int start;
 	
 	
 	
-	public String getToday() {
-		return today;
+	public int getStart() {
+		return start;
 	}
-	public void setToday(String today) {
-		this.today = today;
+	public void setStart(int start) {
+		this.start = start;
 	}
-	public String getReqDiaryetc() {
-		return reqDiaryetc;
+	public int getStartDay() {
+		return startDay;
 	}
-	public void setReqDiaryetc(String reqDiaryetc) {
-		this.reqDiaryetc = reqDiaryetc;
+	public void setStartDay(int startDay) {
+		this.startDay = startDay;
 	}
-	public String getSqlid() {
-		return sqlid;
+	public int getEndDay() {
+		return endDay;
 	}
-	public void setSqlid(String sqlid) {
-		this.sqlid = sqlid;
+	public void setEndDay(int endDay) {
+		this.endDay = endDay;
 	}
-	public String getReqDay() {
-		return reqDay;
+	public int getNewLine() {
+		return newLine;
 	}
-	public void setReqDay(String reqDay) {
-		this.reqDay = reqDay;
+	public void setNewLine(int newLine) {
+		this.newLine = newLine;
 	}
 	
-	public String getDaystr() {
-		return daystr;
-	}
-	public void setDaystr(String daystr) {
-		this.daystr = daystr;
-	}
-	public String getDiaryetc() {
-		return diaryetc;
-	}
-	public void setDiaryetc(String diaryetc) {
-		this.diaryetc = diaryetc;
-	}       
-
+	
+	
 	
 	
 }
