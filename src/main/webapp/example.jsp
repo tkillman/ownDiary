@@ -71,16 +71,16 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 <form name="calendarFrm" id="calendarFrm" action="" method="post">
 <DIV id="content" style="width:712px;">
 
-<table width="100%" border="0" cellspacing="1" cellpadding="1">
+<table width="712px;" border="0" cellspacing="1" cellpadding="1">
 <tr>
 	<td align ="right">
 		<input type="button" onclick="javascript:location.href='<c:url value='CalendarExam2.jsp' />'" value="오늘"/>
 	</td>
 
 </tr>
-</table>
+</table> 
 <!--날짜 네비게이션  -->
-<table width="100%" border="0" cellspacing="1" cellpadding="1" id="KOO" bgcolor="#F3F9D7" style="border:1px solid #CED99C">
+<table width="712px;" border="0" cellspacing="1" cellpadding="1" id="KOO" bgcolor="#F3F9D7" style="border:1px solid #CED99C">
 
 <tr>
 <td height="60">

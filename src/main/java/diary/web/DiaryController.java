@@ -2,6 +2,7 @@ package diary.web;
 
 import java.util.Calendar;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,16 +13,28 @@ import diary.vo.DiaryVo;
 @Controller
 public class DiaryController {
 
-	
+	private Logger log = Logger.getLogger(getClass());
+	 
 	@RequestMapping(value= {"/diaryForm.do"})
 	public String diaryForm(@ModelAttribute("diaryVo") DiaryVo diaryVo, ModelMap model)throws Exception{
 		
-		
-		
 		Calendar cal = Calendar.getInstance();
 		
-		int year = cal.get(Calendar.YEAR);
-		int month = cal.get(Calendar.MONTH);
+		int year;
+		int month;
+		if(diaryVo.getYear() != 0) {
+			year = diaryVo.getYear();
+			month = diaryVo.getMonth();		
+		}else {
+			year = cal.get(Calendar.YEAR);
+			diaryVo.setYear(year);
+			month = cal.get(Calendar.MONTH);
+			diaryVo.setMonth(month);	
+		}
+		
+		log.debug(year);
+		log.debug(month);
+		
 		cal.set(year, month, 1);
 		
 		int startDay = cal.getMinimum(java.util.Calendar.DATE);

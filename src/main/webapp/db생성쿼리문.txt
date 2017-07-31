@@ -1,0 +1,6 @@
+create table tbl_diary(
+seq number primary key
+,year_month varchar2(7)
+,idx number
+,etc varchar2(3000)
+);
