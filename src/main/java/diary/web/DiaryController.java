@@ -19,6 +19,11 @@ public class DiaryController {
 		
 		
 		Calendar cal = Calendar.getInstance();
+		
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH);
+		cal.set(year, month, 1);
+		
 		int startDay = cal.getMinimum(java.util.Calendar.DATE);
 		diaryVo.setStartDay(startDay);
 		

@@ -9,6 +9,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style TYPE="text/css">
+		body {
+		scrollbar-face-color: #F6F6F6;
+		scrollbar-highlight-color: #bbbbbb;
+		scrollbar-3dlight-color: #FFFFFF;
+		scrollbar-shadow-color: #bbbbbb;
+		scrollbar-darkshadow-color: #FFFFFF;
+		scrollbar-track-color: #FFFFFF;
+		scrollbar-arrow-color: #bbbbbb;
+		margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
+		}
+		td {font-family: "돋움"; font-size: 9pt; color:#595959;}
+		th {font-family: "돋움"; font-size: 9pt; color:#000000;}
+		select {font-family: "돋움"; font-size: 9pt; color:#595959;}
+		.divDotText {
+		overflow:hidden;
+		text-overflow:ellipsis;
+		}
+A:link { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
+A:visited { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
+A:active { font-size:9pt; font-family:"돋움";color:red; text-decoration:none; }
+A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
+	</style>
 </head>
 <body>
 
@@ -43,24 +66,28 @@
 <TR>
 <c:forEach begin="1" end="${vo.start - 1}">
 <td>&nbsp;</td>
-<c:set var="newLine" value="${newLine+1}"></c:set>
+<c:set var="newLine" value="${newLine+1}"/>
 </c:forEach>
 
-<c:forEach begin="1" end="${vo.endDay}">
-<td></td>
-<c:set var="newLine" value="${newLine+1}"></c:set>
+<c:forEach begin="1" end="${vo.endDay}" varStatus="i">
+<TD valign='top' align='left' height='92px' nowrap="nowrap">${i.count}<br/>
+<textarea rows="5" cols="25"></textarea>
+</TD>  
+<c:set var="newLine" value="${newLine+1}"/>
 
-<c:choose>
-<c:when test="${newLine == 7}">
-<c:set var="newLine" value="0"></c:set>
 
+
+
+<c:if test="${newLine eq 7}">
+<c:set var="newLine" value="0"/>
 </TR>
 <TR>
-</c:when>
-<c:otherwise>
+</c:if>
 
-</c:otherwise>
-</c:choose>
+</c:forEach>
+
+<c:forEach begin="${newLine}" end="6">
+<TD>&nbsp;</TD>
 </c:forEach>
 </TR>
 
