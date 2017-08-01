@@ -47,8 +47,14 @@ public class DiaryServiceImpl implements DiaryService{
 		String searchValue= Integer.toString(diaryVo.getYear())+"-"+Integer.toString(month); 
 		diaryVo.setSearchValue(searchValue);
 		
+		List<DbVo> dbVoList = diaryDAO.selectDataList(diaryVo);
 		
-		return diaryDAO.selectDataList(diaryVo);
+		//비었으면 빈 List를 보내준다.
+		if(dbVoList.size() ==0) {
+			dbVoList = dumpList();
+		}
+		
+		return dbVoList;
 	}
 
 	@Override
@@ -71,7 +77,6 @@ public class DiaryServiceImpl implements DiaryService{
 			dbVoList.add(tempDbVo);
 		}
 
-		System.out.println(dbVoList.size());
 		return dbVoList;
 	}
 	

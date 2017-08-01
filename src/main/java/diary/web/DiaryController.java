@@ -59,13 +59,7 @@ public class DiaryController {
 		
 		//다이어리 내용
 		List<DbVo> dbVoList = diaryService.selectDbVoList(diaryVo);
-		
-		if(dbVoList.size() ==0) {
-			dbVoList =diaryService.dumpList();
-			diaryVo.setDbVoList(dbVoList);
-		}else {
-			diaryVo.setDbVoList(dbVoList);	
-		}
+		diaryVo.setDbVoList(dbVoList);
 		
 		
 		model.addAttribute("diaryVo", diaryVo);

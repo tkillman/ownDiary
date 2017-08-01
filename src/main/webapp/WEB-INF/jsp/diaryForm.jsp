@@ -160,14 +160,14 @@ function frmSave(){
 </TR>
 </THEAD>
 <TBODY>
-<!-- 칸 만드는 처음 tr -->
+<!--첫주의 시작 요일이 나올때까지 공백 td를 만들어준다.-->
 <TR>
 <c:forEach begin="1" end="${vo.start - 1}">
 <td>&nbsp;</td>
 <c:set var="newLine" value="${newLine+1}"/>
 </c:forEach>
 
-
+<!--시작 요일부터 1일의 내용을 만들어준다.-->
 <c:forEach begin="1" end="${vo.endDay}" varStatus="i"> 
 <TD valign='top' align='left' height='92px' nowrap="nowrap">${i.count}<br/>
 <input type="hidden" name="dbVoList[${i.count-1}].idx" value="${i.count}"/>
@@ -177,15 +177,16 @@ function frmSave(){
 
 
 
-
+<!-- newLine은 열의 숫자이다. 0이 첫번째 줄,1이 두번째 줄, 마지막줄이 6이다. newLine이 7이면 마지막줄을 넘었기 때문에 tr을 닫고 새로운  tr을 열어준다. -->
 <c:if test="${newLine eq 7}">
 <c:set var="newLine" value="0"/>
 </TR>
 <TR>
 </c:if>
 
-</c:forEach>
+</c:forEach> <!-- 1일부터 마지막일까지의 내용을 모두 만들었다. -->
 
+<!-- 마지막주의 빈 공간을 채워준다. -->
 <c:forEach begin="${newLine}" end="6">
 <TD>&nbsp;</TD>
 </c:forEach>
