@@ -49,6 +49,7 @@ function preMonth(){
 function nextMonth(){
 	
 	$('input[name=month]').val(${vo.month+1});
+	document.calendarFrm.action="/ownDiary/diaryForm.do";
 	document.calendarFrm.submit();
 }
 
@@ -104,7 +105,7 @@ function frmSave(){
 				<b>&lt;&lt;</b><!-- 이전해 -->
 			</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="#;" onclick="${vo.month eq 0 ? '':'preMonth()'}">
+			<a href="#;" onclick="${vo.month eq 0 ? 'alert(\'마지막달입니다.\')':'preMonth()'}">
 				<b>&lt;</b><!-- 이전달 -->
 				
 			</a>
@@ -115,7 +116,7 @@ function frmSave(){
 			${vo.month+1}월
 			&nbsp;&nbsp;
 			
-			<a href="#;" onclick="${vo.month eq 11 ? '':'nextMonth()'}" target="_self">
+			<a href="#;" onclick="${vo.month eq 11 ? 'alert(\'마지막달입니다.\')':'nextMonth()'}" target="_self">
 				<!-- 다음달 --><b>&gt;</b>
 			</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;
@@ -170,7 +171,7 @@ function frmSave(){
 <c:forEach begin="1" end="${vo.endDay}" varStatus="i"> 
 <TD valign='top' align='left' height='92px' nowrap="nowrap">${i.count}<br/>
 <input type="hidden" name="dbVoList[${i.count-1}].idx" value="${i.count}"/>
-<textarea rows="5" cols="25" name="dbVoList[${i.count-1}].etc" maxlength="1000"></textarea>
+<textarea rows="5" cols="25" name="dbVoList[${i.count-1}].etc" maxlength="1000">${vo.dbVoList.get(i.count-1).etc}</textarea>
 </TD>  
 <c:set var="newLine" value="${newLine+1}"/>
 

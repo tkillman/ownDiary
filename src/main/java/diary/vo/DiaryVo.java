@@ -4,7 +4,7 @@ import java.util.List;
 
 public class DiaryVo {
 
-	
+	private String sqlid;
 	private int startDay;
 	private int endDay;
 	private int newLine;
@@ -12,8 +12,23 @@ public class DiaryVo {
 	private int year;
 	private int month;
 	private List<DbVo> dbVoList;
- 	
+	private String searchValue;
 
+	
+	
+	
+	public String getSearchValue() {
+		return searchValue;
+	}
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
+	}
+	public String getSqlid() {
+		return sqlid;
+	}
+	public void setSqlid(String sqlid) {
+		this.sqlid = sqlid;
+	}
 	public List<DbVo> getDbVoList() {
 		return dbVoList;
 	}

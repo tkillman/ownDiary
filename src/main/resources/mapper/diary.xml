@@ -13,4 +13,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     VALUES(#{seq}, #{year_month}, #{idx},#{etc})
 </insert>  
 
+<select id="selectDbVoList" parameterType="diary.vo.DbVo" resultType="diary.vo.DbVo">
+select *
+from tbl_diary
+where year_month= #{searchValue}
+order by idx 
+</select>
+
+<delete id="diaryDelete" parameterType="diary.vo.DbVo">
+DELETE FROM tbl_diary
+where year_month= #{searchValue}
+</delete>
 </mapper>
