@@ -5,5 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="DiaryDao">
 
+<insert id="diaryInsert" parameterType="diary.vo.DbVo">
+    <selectKey resultType="long" keyProperty="seq" order="BEFORE">
+        SELECT nvl(max(seq),0) +1 as seq FROM tbl_diary        
+    </selectKey>    
+    INSERT INTO tbl_diary(seq,year_month,idx,etc)
+    VALUES(#{seq}, #{year_month}, #{idx},#{etc})
+</insert>  
 
 </mapper>

@@ -2,17 +2,23 @@ package diary.web;
 
 import java.util.Calendar;
 
+import javax.annotation.Resource;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import diary.service.DiaryService;
 import diary.vo.DiaryVo;
 
 @Controller
 public class DiaryController {
 
+	@Resource(name="DiaryService")
+	private DiaryService diaryService;
+	
 	private Logger log = Logger.getLogger(getClass());
 	 
 	@RequestMapping(value= {"/diaryForm.do"})
@@ -53,4 +59,16 @@ public class DiaryController {
 		return "diaryForm";
 	}
 	
+	@RequestMapping(value= {"/diaryInsert.do"})
+	public String diaryInsert(@ModelAttribute("diaryVo")DiaryVo diaryVo,ModelMap model) throws Exception {
+		
+		String resultMsg = "시스템 오류입니다.";
+		String moveType = "back";
+		String returnUrl ="";
+		
+		diaryService.diaryInsert(diaryVo);
+		
+		
+		return "commResult";
+	}
 }

@@ -13,9 +13,7 @@ public class DiaryVo {
 	private int month;
 	private List<DbVo> dbVoList;
  	
-	
-	
-	
+
 	public List<DbVo> getDbVoList() {
 		return dbVoList;
 	}

@@ -42,6 +42,7 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 function preMonth(){
 	
 	$('input[name=month]').val(${vo.month-1});
+	document.calendarFrm.action="/ownDiary/diaryForm.do";
 	document.calendarFrm.submit();
 }
 
@@ -51,13 +52,19 @@ function nextMonth(){
 	document.calendarFrm.submit();
 }
 
+function frmSave(){
+
+	document.calendarFrm.action="/ownDiary/diaryInsert.do";
+	document.calendarFrm.submit();
+}
+
 </script>		
 </head>
 <body>
-<form name="calendarFrm" id="calendarFrm" action="/ownDiary/diaryForm.do">
+<form name="calendarFrm" id="calendarFrm" method="post">
 <input type="hidden" name="year" value="${vo.year}"/>
-<input type="hidden" name="month"/>
-</form>
+<input type="hidden" name="month" value="${vo.month}"/>
+
 
 <DIV id="content" style="width:712px;">
 
@@ -73,7 +80,7 @@ function nextMonth(){
 			}) 
 		})
 		</script>
-		<input type="button" value="다이어리저장" style="height: 50px; width: 90px;"/>
+		<input type="button" value="다이어리저장" onclick="frmSave();" style="height: 50px; width: 90px;"/>
 	</td>
 
 </tr>
@@ -159,9 +166,11 @@ function nextMonth(){
 <c:set var="newLine" value="${newLine+1}"/>
 </c:forEach>
 
+
 <c:forEach begin="1" end="${vo.endDay}" varStatus="i"> 
 <TD valign='top' align='left' height='92px' nowrap="nowrap">${i.count}<br/>
-<textarea rows="5" cols="25" name="" maxlength="1000"></textarea>
+<input type="hidden" name="dbVoList[${i.count-1}].idx" value="${i.count}"/>
+<textarea rows="5" cols="25" name="dbVoList[${i.count-1}].etc" maxlength="1000"></textarea>
 </TD>  
 <c:set var="newLine" value="${newLine+1}"/>
 
@@ -188,6 +197,6 @@ function nextMonth(){
 </table>
 </DIV>
 
-
+</form>
 </body>
 </html>

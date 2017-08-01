@@ -2,17 +2,28 @@ package diary.vo;
 
 public class DbVo {
 
-	private Long seq;           
+	private long seq;           
 	private String year_month;          
 	private int idx;                       
 	private String etc;
+	private String sqlid;
 	
-	public Long getSeq() {
+	
+	
+	
+	public long getSeq() {
 		return seq;
 	}
-	public void setSeq(Long seq) {
+	public void setSeq(long seq) {
 		this.seq = seq;
 	}
+	public String getSqlid() {
+		return sqlid;
+	}
+	public void setSqlid(String sqlid) {
+		this.sqlid = sqlid;
+	}
+	
 	public String getYear_month() {
 		return year_month;
 	}
