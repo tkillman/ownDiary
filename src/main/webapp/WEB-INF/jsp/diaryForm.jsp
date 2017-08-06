@@ -200,5 +200,13 @@ function frmSave(){
 </DIV>
 
 </form>
+
+<div>목표 설정 <br/>
+단기적 목표 : 리눅스 마스터 자격증 따기 d-54<br/>
+
+장기적 목표 : 전기 기사 따기,플란체
+
+</div>
+
 </body>
 </html>
